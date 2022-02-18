@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+    <link rel="stylesheet" href="./assets/index.css" />
+</head>
+<body>
+    <button class="action">-1-</button>
+    <button class="action">-2-</button>
+    <button class="action">-3-</button>
+
+    <!-- <main class="container">
+        <video class="movie">
+          <source src="./assets/srIndiferente.mp4" />
+        </video>
+  
+        <button id="playButton">Play/Pause</button>
+        <button id="muteButton">Mute/Unmute</button>
+    </main>
+    
+      <script type="module"  src="/assets/index.js"></script> -->
+    <script>
+        //scops
+        // function pintarNumero() {
+        //     for( var i = 0; i < 10; i++){
+        //         function eventoPintar(i) {
+        //             setTimeout( () => {
+        //                 console.log(i)
+        //             },  2000)
+        //         }
+        //         eventoPintar(i)
+        //     }    
+        // }
+        // pintarNumero()
+
+        //closurs
+        // function calcular(n1, n2) {
+        //     let suma = n1 + n2
+        //     let mult = n1 * n2
+            
+        //     return {
+        //         resSuma: () => {return suma},
+        //         resMult: () => {return mult}
+        //     }
+        // }
+        // let total = calcular(7, 2)
+        // console.log(`resultado de la suma: ${total.resSuma()}`)
+        // console.log(`resultado de la multiplicacion: ${total.resMult()}`)
+
+        // ----------------------------------------------------------------
+
+        //this / call / apply
+        function saludar() {
+            console.log(`Hola. soy: ${this.name} ${this.lastName}`)
+        }
+
+        const abdou = {
+            name: 'Abdou',
+            lastName: 'Bousiyd'
+        }
+        saludar.call(abdou)
+
+        function caminar(metros, direccion) {
+            console.log(`${this.name} camina ${metros} metros, direccion ${direccion}`)
+        }
+        caminar.call(abdou, 200, 'girona')
+
+        const valores = [900, 'noreste'] //apply es de arrays
+        caminar.apply(abdou, valores)
+
+        const buttons = document.getElementsByClassName('action')
+        console.log(buttons)
+
+        Array.from(buttons).forEach(button => {
+            button.onclick = () => console.log('hola mundo!')
+        });
+
+        Array.prototype.forEach.call(buttons, button => {
+            button.onclick = () => console.log('hola mundo!')
+        });
+    
+    </script>
+</body>
+</html>
